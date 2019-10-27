@@ -1,16 +1,22 @@
-import React from 'react'
+import FilmPoster from './FilmPoster'
+import Fave from './Fave'
+import React, { Component } from 'react'
+export default class FilmRow extends Component {
 
-const FilmRow = (props) => {
-    return (
-<div className="film-row">
-  <img src={'https://image.tmdb.org/t/p/w500/'+props.poster} alt="" />
+  handleDetailsClick =(film)=>{
+    console.log( "Fetching details for"+ film)
+    }
 
-  <div className="film-summary">
-    <h1 >{props.title}</h1>
-    <p>{props.date}</p>
-  </div>
-</div>
-    )
+ render() {
+     return (
+       <div className="film-row" onClick={()=> this.handleDetailsClick(' Film')}>
+         <FilmPoster filmPoster={this.props.filmPoster}/>
+         <div className="film-summary">
+           <Fave/>
+           <h1>{this.props.filmTitle}</h1>
+           <p>{this.props.filmDate}</p>
+         </div>
+       </div>
+   )
+ }
 }
-
-export default FilmRow

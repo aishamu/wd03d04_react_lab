@@ -1,19 +1,16 @@
-import React, { Component } from 'react'
+import List from './List';
+import Details from './Details';
+import './App.css';
 import TMDB from './TMDB'
-import Filmlisting from './FilmListing'
-import FilmDetails from './FilmDetails'
+import React, { Component } from 'react'
 
 export default class App extends Component {
-  render() {
-    return (
-<div>
-  <Filmlisting films={TMDB.films}>
-
-  </Filmlisting>
-  <FilmDetails>
-
-  </FilmDetails>
-</div>
-    )
-  }
+ render() {
+   return (
+     <div className="film-library">
+ <List db={TMDB}/>
+ <Details />
+ </div>
+   )
+ }
 }
