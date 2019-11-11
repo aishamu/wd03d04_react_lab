@@ -6,8 +6,12 @@ export default class List extends Component {
     console.log("Setting filter to"+filter)
     }
    render() {
-       let allFilms = this.props.db.films.map( (film, index) => (<FilmRow filmTitle={film.title}
-           filmId={film.id} filmDate={new Date().getFullYear(film.release_date)} filmPoster={film.poster_path}/>));
+     
+const faveList=this.props.films.filter((film)=>{ 
+    return this.props.faves.includes(film); 
+  }) 
+  const show=this.state.filter=='all'?this.props.films:faveList; 
+
        return (
           
            
@@ -23,7 +27,7 @@ export default class List extends Component {
 
         <div className="film-list-filter">
             FAVES
-            <span className="section-count">0</span>
+            <span className="section-count">{this.props.faves.length}</span>
         </div>
     </div>
 
