@@ -9,8 +9,7 @@ export default class FilmRow extends Component {
 
  render() {
      return (
-      <div className="film-row" onClick={() => props.onDetailsClick(props.title)}>         <FilmPoster filmPoster={this.props.filmPoster}/>
-         <div className="film-summary">
+<div className="film-row" onClick={() => props.onDetailsClick(props.film)}>         <div className="film-summary">
           
            <Fave onFaveToggle={props.onFaveToggle} isFave={props.isFave}/>
            <h1>{this.props.filmTitle}</h1>
